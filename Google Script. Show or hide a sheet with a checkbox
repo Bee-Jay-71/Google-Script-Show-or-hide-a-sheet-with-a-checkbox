@@ -1,0 +1,35 @@
+// Create two sheets and name for example: "Sheet1" and "Sheet2".
+// In "Sheet1" create a checkbox in cell "A1".
+
+function hideShow() {
+  
+  // Defines column: A1
+  var cell1 = ("A1");
+  
+  var showSheet = SpreadsheetApp.getActive();
+  var hideSheet = SpreadsheetApp.getActive();
+ 
+  // Varibel that will save the data "true or false" if A1 is checked or unchecked.
+  var cell1ison = SpreadsheetApp.getActiveSheet().getRange(cell1).isChecked()
+  
+  // Now it goes to the sheet that you want to hide/or show.
+  var ss = showSheet.getSheetByName("Sheet2");
+  
+  // If data (cell is checked) is TRUE, then hide the sheet.
+  if (cell1ison == true) {
+    
+    ss.hideSheet();
+    
+  }
+  
+  // Else if data (is not checked) then show the sheet.
+  else if (cell1ison == false) {
+    
+    ss.showSheet();
+    
+  }
+  
+}
+
+// When it is checked, "Sheet2" will be hidden.
+// When uncecked, Sheet2 will show again.
